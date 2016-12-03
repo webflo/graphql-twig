@@ -1,0 +1,13 @@
+{
+    "name": "dawehner/graphql-twig",
+    "require": {
+        "twig/twig": "^1.28",
+        "youshido/graphql": "v1.4.2.6"
+    },
+    "authors": [
+        {
+            "name": "Daniel Wehner",
+            "email": "dawehner@googlemail.com"
+        }
+    ]
+}
