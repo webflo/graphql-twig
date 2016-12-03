@@ -34,7 +34,7 @@ class IntegrationTest extends \PHPUnit_Framework_TestCase {
           'query' => $rootQueryType
         ]));
 
-        $loader = new \Twig_Loader_Filesystem('Fixture/templates');
+        $loader = new \Twig_Loader_String();
         $twig = new \Twig_Environment($loader, [
           'cache' => '/tmp',
           'debug' => true,
@@ -42,7 +42,17 @@ class IntegrationTest extends \PHPUnit_Framework_TestCase {
         $twig->addExtension(new GraphqlTwigExtension($processor));
         $twig->addExtension(new \Twig_Extension_Debug());
 
-        $output = $twig->render('example.html.twig', $processor->getResponseData());
+        $template = <<<TWIG
+{% set data = gql("
+{ latestPost { title, summary } }
+")
+%}
+
+{{ data.latestPost.title }}
+
+TWIG;
+
+        $output = $twig->render($template, $processor->getResponseData());
 
         $expected = <<<HTML
 
