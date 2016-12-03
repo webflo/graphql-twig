@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use dawehner\GraphqlTwig\GraphqlTwigExtension;
 use Tests\Fixture\PostType;
 use Youshido\GraphQL\Execution\Processor;
 use Youshido\GraphQL\Schema\Schema;
@@ -38,12 +39,8 @@ class IntegrationTest extends \PHPUnit_Framework_TestCase {
           'cache' => '/tmp',
           'debug' => true,
         ]);
+        $twig->addExtension(new GraphqlTwigExtension($processor));
         $twig->addExtension(new \Twig_Extension_Debug());
-
-        $function = new \Twig_SimpleFunction('gql', function ($query) use ($processor) {
-          return $processor->processPayload($query)->getResponseData()['data'];
-        });
-        $twig->addFunction($function);
 
         $output = $twig->render('example.html.twig', $processor->getResponseData());
 
