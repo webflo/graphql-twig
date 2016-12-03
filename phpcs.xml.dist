@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<ruleset name="PHP_CodeSniffer">
+    <file>./src</file>
+
+    <exclude-pattern type="relative">^/tests/*</exclude-pattern>
+    <exclude-pattern type="relative">^/vendor/*</exclude-pattern>
+
+    <arg name="colors"/>
+    <arg name="report" value="full"/>
+
+    <rule ref="PSR2"/>
+</ruleset>
