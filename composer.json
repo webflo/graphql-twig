@@ -9,5 +9,18 @@
             "name": "Daniel Wehner",
             "email": "dawehner@googlemail.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "dawehner\\GraphqlTwig\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.7"
+    }
 }

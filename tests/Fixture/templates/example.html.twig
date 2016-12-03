@@ -1,0 +1,6 @@
+{% set data = gql("
+{ latestPost { title, summary } }
+")
+%}
+
+{{ data.latestPost.title }}
