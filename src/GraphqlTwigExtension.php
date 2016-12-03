@@ -7,7 +7,8 @@ use Youshido\GraphQL\Execution\Processor;
 /**
  * Provides a twig extension which allows you to execute gql queries.
  */
-class GraphqlTwigExtension extends \Twig_Extension {
+class GraphqlTwigExtension extends \Twig_Extension
+{
 
     /**
      * The GraphQL processor.
@@ -22,7 +23,8 @@ class GraphqlTwigExtension extends \Twig_Extension {
      * @param \Youshido\GraphQL\Execution\Processor $processor
      *   The graphql processor.
      */
-    public function __construct(Processor $processor) {
+    public function __construct(Processor $processor)
+    {
         $this->processor = $processor;
     }
 
@@ -46,5 +48,4 @@ class GraphqlTwigExtension extends \Twig_Extension {
     {
         return $this->processor->processPayload($query)->getResponseData()['data'];
     }
-
 }
