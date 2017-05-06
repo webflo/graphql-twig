@@ -3,7 +3,7 @@
     "require": {
         "php": "^5.6 || ^7.0",
         "twig/twig": "^1.23.1",
-        "youshido/graphql": "dev-master"
+        "youshido/graphql": "~1.4"
     },
     "authors": [
         {
